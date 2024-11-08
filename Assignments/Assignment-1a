@@ -1,4 +1,4 @@
------3bit by 3bit multiplier using gate level------
+-----3bit by 3bit multiplier using Gate level Model------
 
 CODE:
 module multiplier3by3(A, B, p);
