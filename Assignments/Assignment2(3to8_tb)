@@ -1,0 +1,29 @@
+-----Test Bench code for 3to8 decoder-----
+
+CODE:
+
+module dec3to8_tb();
+reg E;
+reg [2:0]A;
+wire[7:0]Y;
+dec3to8 d1(E,A,Y);
+initial
+begin
+    E=1'b0;A=3'b001;
+    #10;
+    E=1'b1;A=3'b000;
+    #10;
+    E=1'b1;A=3'b001;
+    #10;
+    E=1'b1;A=3'b100;
+    #10;
+    E=1'b1;A=3'b101;
+    #10;
+    E=1'b1;A=3'b111;
+    #10;
+end 
+initial begin
+        $monitor("Time=%0t | E=%b, A=%b, Y=%b", $time, E, A, Y);
+    end
+endmodule
+   
