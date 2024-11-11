@@ -1,0 +1,28 @@
+-----Test Bench code for MOD-10 up counter-----
+
+CODE:
+
+module mod10tb();
+reg clk,reset;
+wire [3:0]q;
+
+mod10 m1(clk,reset,q);
+initial 
+    begin
+        clk = 0;
+        forever #5 clk = ~clk;
+    end
+    initial begin
+        reset = 1; 
+        #10;                  
+        reset = 0;             
+        #100;                  
+        reset = 1;
+        #10;
+        reset = 0;
+        
+        #50;                 
+
+        $stop;        
+    end
+endmodule
