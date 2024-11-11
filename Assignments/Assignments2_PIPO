@@ -1,0 +1,12 @@
+-------verilog code for 4-bit PIPO register-----
+
+CODE:
+
+module regpipo(clk,d,q);
+input clk;
+input [3:0]d;
+output reg[3:0]q;
+always@(posedge clk)begin
+    q<=d;
+    end
+endmodule
