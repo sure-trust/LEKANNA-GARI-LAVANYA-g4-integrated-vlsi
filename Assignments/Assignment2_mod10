@@ -1,0 +1,17 @@
+-----MOD-10 up counter using Behavirol Model-------
+
+CODE:
+
+module mod10(clk,reset,q);
+input clk,reset;
+output reg[3:0]q;
+always@(posedge clk)
+begin
+    if (reset)
+        q<=4'b0000;
+    else if (q==4'b1010)
+        q<=4'b0000;
+    else 
+        q=q+1;        
+end 
+endmodule
