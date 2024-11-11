@@ -1,0 +1,27 @@
+------Test bench Code for 4-bit PIPO register-----
+
+CODE:
+
+module regpipo_tb();
+reg clk;
+reg [3:0]d;
+wire [3:0]q;
+
+regpipo r1(clk,d,q);
+
+initial begin 
+    clk=0;
+    forever #5 clk=~clk;
+end
+initial begin
+    d=4'b0000;
+    #10;
+    d=4'b0101;
+    #10;
+    d=4'b1111;
+    #10;
+    d=4'b1001;
+    #10;
+    $stop;
+end
+endmodule
