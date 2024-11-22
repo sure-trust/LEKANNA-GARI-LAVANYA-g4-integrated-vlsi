@@ -1,0 +1,30 @@
+----Test bench code for fsm------
+
+CODE:
+module fsm_tb;
+
+    reg clk;
+    reg reset;
+    reg in;
+    wire out;
+    fsm_1011 uut (clk,reset,in,out);
+    
+    initial begin
+        clk = 0;
+        forever #5 clk = ~clk; 
+    end
+    initial begin
+        reset = 1;
+        in = 0;
+        
+        #10 reset = 0;
+        #10 in = 1; 
+        #10 in = 0; 
+        #10 in = 1; 
+        #10 in = 1; 
+        #10 in = 0; 
+        #10 in = 1; 
+        #10 in = 1; 
+        #20 $stop;
+    end
+endmodule
