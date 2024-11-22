@@ -1,0 +1,9 @@
+------ 4-bit even parity generator-----
+
+CODE:
+module even_parity(b,e);
+input[3:0]b;
+output e;
+assign e=b[0]^b[1]^b[2]^b[3];
+endmodule
+
