@@ -1,0 +1,20 @@
+-----Test bench code for cclock generation----
+
+CODE:
+module clock_tb();
+reg clk;                        
+wire [31:0] rising_edge;        
+clock d1(clk,rising_edge);
+initial begin
+    clk = 0;
+    forever #50 clk = ~clk;   
+end
+initial begin
+    $monitor("Time: %0t | Clock: %b | Rising Edge Count: %0d", 
+             $time, clk, rising_edge);
+end
+initial begin
+    #100000000;
+    $stop;
+end
+endmodule
