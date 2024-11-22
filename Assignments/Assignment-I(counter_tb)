@@ -1,0 +1,22 @@
+---- Test bench code for counters---
+
+CODE:
+module counter_tb();
+reg clk;
+reg reset;
+wire [3:0] counter_a;
+wire [3:0] counter_b;
+counter c1(clk,reset,counter_a,counter_b);
+initial begin
+    clk = 0;
+    forever #5 clk = ~clk; 
+end
+initial begin
+    reset = 1; #10; 
+    reset = 0; #200; 
+    $stop;
+end
+initial begin
+    $monitor("Time: %0t | Counter A: %0d | Counter B: %0d", $time, counter_a, counter_b);
+end
+endmodule
