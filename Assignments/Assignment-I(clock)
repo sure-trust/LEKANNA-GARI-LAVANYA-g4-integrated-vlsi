@@ -3,17 +3,15 @@
 CODE:
 module clock(clk,rising_edge);
 input wire clk;
-output reg [31:0] rising_edge;
-reg [31:0] counter;
+output reg [31:0]rising_edge;
+reg [31:0] counter; 
+    
 always @(posedge clk) begin
-    counter <= counter + 1;
-end
-
-always @(posedge clk) begin
-if (counter == 50000000) begin // 5 seconds with 10 MHz
-    rising_edge <= rising_edge+ 1;
+    if (counter == 50000000) begin 
+        rising_edge <= rising_edge + 1;
         counter <= 0;
+    end else begin
+        counter <= counter + 1;
     end
 end
-
 endmodule
